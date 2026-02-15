@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
   <title>Para Ari · San Valentín</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23ff4d6d'>❤️</text></svg>">
+  
+  <!-- ===== FAVICON (ICONO PARA LA PESTAÑA) ===== -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23ff4d6d'>❤️</text></svg>">
   <link rel="alternate icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23ff4d6d'>💖</text></svg>">
+  
   <!-- Tipografía romántica y amigable -->
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
   <!-- Font Awesome para iconos -->
@@ -132,14 +135,20 @@
       line-height: 1.2;
     }
 
+    /* ===== SUBHEAD CORREGIDO - SIEMPRE ARRIBA DEL CORAZÓN ===== */
     .subhead {
       font-size: 1.2rem;
       color: #c45a76;
       font-weight: 600;
       margin-bottom: 15px;
       border-bottom: 3px dotted #ffa7bc;
-      display: inline-block;
+      /* FORZAMOS QUE SEA UN BLOQUE COMPLETO */
+      display: block;
+      width: 100%;
+      text-align: center;
       padding-bottom: 8px;
+      /* Eliminamos inline-block que podía causar el problema */
+      clear: both;
     }
 
     /* ===== CORAZÓN PRINCIPAL LATIENTE ===== */
@@ -151,6 +160,8 @@
       animation: heartBeat 1.6s infinite ease-in-out, heartGlow 2s infinite alternate;
       display: inline-block;
       filter: drop-shadow(0 8px 12px rgba(230, 60, 90, 0.4));
+      /* Aseguramos que esté en su propia línea */
+      clear: both;
     }
 
     @keyframes heartBeat {
@@ -174,6 +185,9 @@
       margin: 15px 0 10px;
       color: #d96781;
       animation: bouquetSway 4s infinite ease-in-out;
+      display: block;
+      width: 100%;
+      text-align: center;
     }
 
     @keyframes bouquetSway {
@@ -360,9 +374,11 @@
     <div class="name-badge">✨ PARA TI, ARI ✨</div>
     
     <h1>Feliz San Valentín</h1>
-    <div class="subhead">Día de la amistad y el cariño</div>
+    
+    <!-- ===== SUBHEAD AHORA SIEMPRE ARRIBA DEL CORAZÓN ===== -->
+    <div class="subhead">Día del amor y la amistad</div>
 
-    <!-- CORAZÓN PRINCIPAL LATIENTE -->
+    <!-- CORAZÓN PRINCIPAL LATIENTE (AHORA DEBAJO DEL SUBHEAD) -->
     <div class="main-heart" aria-hidden="true">❤️</div>
     
     <!-- RAMO DE FLORES -->
