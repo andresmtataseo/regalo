@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>Para Ari · San Valentín</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23ff4d6d'>❤️</text></svg>">
+  <link rel="alternate icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23ff4d6d'>💖</text></svg>">
+  <!-- Tipografía romántica y amigable -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+  <!-- Font Awesome para iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ===== RESET Y AMBIENTE ROMÁNTICO ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(145deg, #ffd1dc 0%, #ffb6c1 100%);
+      background-image: 
+        radial-gradient(circle at 20% 40%, rgba(255, 255, 255, 0.3) 4px, transparent 4px),
+        radial-gradient(circle at 80% 70%, rgba(255, 200, 210, 0.4) 5px, transparent 5px),
+        radial-gradient(circle at 30% 80%, rgba(255, 220, 230, 0.3) 8px, transparent 8px);
+      background-size: 60px 60px, 100px 100px, 150px 150px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      position: relative;
+      margin: 0;
+    }
+
+    /* ===== CORAZONES Y ESTRELLAS FLOTANTES ===== */
+    .floating-elements {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 5;
+      overflow: hidden;
+    }
+
+    .float-item {
+      position: absolute;
+      color: rgba(255, 240, 245, 0.6);
+      font-size: 1.8rem;
+      animation: floatAround 10s infinite ease-in-out;
+      user-select: none;
+      text-shadow: 0 0 10px rgba(255, 120, 160, 0.5);
+    }
+
+    @keyframes floatAround {
+      0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+      25% { transform: translate(20px, -20px) rotate(15deg) scale(1.1); }
+      50% { transform: translate(-15px, -35px) rotate(-10deg) scale(0.9); }
+      75% { transform: translate(-25px, -15px) rotate(5deg) scale(1.05); }
+      100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    }
+
+    .float-item:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; font-size: 2.2rem; }
+    .float-item:nth-child(2) { left: 80%; top: 60%; animation-delay: 1.5s; font-size: 2.5rem; }
+    .float-item:nth-child(3) { left: 20%; top: 75%; animation-delay: 2.8s; font-size: 1.8rem; }
+    .float-item:nth-child(4) { left: 70%; top: 15%; animation-delay: 0.7s; font-size: 3rem; }
+    .float-item:nth-child(5) { left: 45%; top: 40%; animation-delay: 3.5s; font-size: 2rem; }
+    .float-item:nth-child(6) { left: 90%; top: 30%; animation-delay: 2s; font-size: 2.7rem; }
+    .float-item:nth-child(7) { left: 30%; top: 85%; animation-delay: 4s; font-size: 1.6rem; }
+    .float-item:nth-child(8) { left: 55%; top: 10%; animation-delay: 1.2s; font-size: 2.9rem; }
+
+    /* ===== TARJETA PRINCIPAL ===== */
+    .card {
+      background: rgba(255, 250, 250, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 50px 30px 50px 30px;
+      box-shadow: 0 30px 50px -15px rgba(200, 80, 100, 0.4),
+                  0 0 0 3px rgba(255, 200, 220, 0.7);
+      max-width: 700px;
+      width: 100%;
+      padding: 2.5rem 2rem;
+      margin: 20px auto;
+      text-align: center;
+      position: relative;
+      z-index: 15;
+      border: 2px solid rgba(255, 170, 190, 0.6);
+      animation: cardAppear 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    @keyframes cardAppear {
+      0% { opacity: 0; transform: scale(0.85) translateY(40px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .card:hover {
+      box-shadow: 0 40px 60px -10px rgba(220, 90, 110, 0.5);
+      background: rgba(255, 250, 250, 0.95);
+      transform: scale(1.01);
+    }
+
+    /* ===== TÍTULO CON NOMBRE ===== */
+    .name-badge {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #c44a6b;
+      background: rgba(255, 220, 230, 0.8);
+      display: inline-block;
+      padding: 0.4rem 1.8rem;
+      border-radius: 50px;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      border: 2px solid #ffa5b9;
+      animation: glowPulse 2.5s infinite alternate;
+    }
+
+    @keyframes glowPulse {
+      0% { box-shadow: 0 0 5px #ffb6c1, 0 0 10px #ff9eb5; }
+      100% { box-shadow: 0 0 20px #ff6f91, 0 0 30px #ffb6c1; }
+    }
+
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(2.5rem, 12vw, 4.2rem);
+      color: #b63e5a;
+      margin-bottom: 0.2rem;
+      text-shadow: 3px 3px 0 rgba(255, 200, 215, 0.7);
+      line-height: 1.2;
+    }
+
+    .subhead {
+      font-size: 1.2rem;
+      color: #c45a76;
+      font-weight: 600;
+      margin-bottom: 15px;
+      border-bottom: 3px dotted #ffa7bc;
+      display: inline-block;
+      padding-bottom: 8px;
+    }
+
+    /* ===== CORAZÓN PRINCIPAL LATIENTE ===== */
+    .main-heart {
+      font-size: 6rem;
+      line-height: 1;
+      color: #ff4d6d;
+      margin: 15px 0 10px;
+      animation: heartBeat 1.6s infinite ease-in-out, heartGlow 2s infinite alternate;
+      display: inline-block;
+      filter: drop-shadow(0 8px 12px rgba(230, 60, 90, 0.4));
+    }
+
+    @keyframes heartBeat {
+      0% { transform: scale(1); }
+      20% { transform: scale(1.25); }
+      30% { transform: scale(1.15); }
+      40% { transform: scale(1.22); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes heartGlow {
+      0% { text-shadow: 0 0 10px #ff8da1, 0 0 20px #ffb3c6; }
+      100% { text-shadow: 0 0 25px #ff2e55, 0 0 45px #ffa5b9; }
+    }
+
+    /* ===== RAMO DE FLORES CON MOVIMIENTO ===== */
+    .flower-bouquet {
+      font-size: 2.2rem;
+      letter-spacing: 10px;
+      margin: 15px 0 10px;
+      color: #d96781;
+      animation: bouquetSway 4s infinite ease-in-out;
+    }
+
+    @keyframes bouquetSway {
+      0% { transform: rotate(-5deg); }
+      50% { transform: rotate(10deg); }
+      100% { transform: rotate(-5deg); }
+    }
+
+    /* ===== MENSAJE PERSONAL PARA ARI ===== */
+    .message-box {
+      background: rgba(255, 240, 245, 0.9);
+      padding: 2rem 1.5rem;
+      border-radius: 60px 20px 60px 20px;
+      margin: 25px 0 20px;
+      border: 3px solid #ffb0c0;
+      box-shadow: inset 0 0 20px rgba(255, 180, 200, 0.4);
+      animation: messageFloat 5s infinite alternate;
+    }
+
+    @keyframes messageFloat {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-8px); }
+    }
+
+    .greeting {
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: #a13350;
+      margin-bottom: 15px;
+      font-family: 'Dancing Script', cursive;
+    }
+
+    .personal-message {
+      font-size: clamp(1.1rem, 4vw, 1.4rem);
+      color: #622e3c;
+      font-weight: 500;
+      line-height: 1.7;
+    }
+
+    .personal-message i {
+      color: #d44c66;
+      font-style: normal;
+      font-size: 1.5rem;
+    }
+
+    /* ===== SECCIÓN DE MÚSICA ===== */
+    .music-section {
+      background: rgba(255, 210, 225, 0.7);
+      padding: 20px;
+      border-radius: 50px;
+      margin: 20px 0 25px;
+      border: 2px dashed #ff8da1;
+      backdrop-filter: blur(5px);
+    }
+
+    .music-note {
+      font-size: 2.2rem;
+      color: #b34560;
+      animation: musicDance 2s infinite alternate;
+    }
+
+    @keyframes musicDance {
+      0% { transform: translateX(-5px) rotate(-5deg); }
+      100% { transform: translateX(5px) rotate(5deg); }
+    }
+
+    .song-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #9e3f55;
+      margin: 10px 0;
+    }
+
+    .audio-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin: 15px 0 5px;
+    }
+
+    .audio-btn {
+      background: #ff99b4;
+      border: none;
+      color: white;
+      font-size: 1.8rem;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      box-shadow: 0 8px 15px rgba(200, 70, 90, 0.3);
+      border: 2px solid white;
+    }
+
+    .audio-btn:hover {
+      transform: scale(1.15);
+      background: #ff6f8f;
+      box-shadow: 0 12px 20px rgba(220, 60, 80, 0.4);
+    }
+
+    .audio-btn:active {
+      transform: scale(0.95);
+    }
+
+    .audio-btn i {
+      font-size: 2rem;
+    }
+
+    /* ===== FIRMA Y CIERRE ===== */
+    .signature {
+      margin-top: 30px;
+      font-size: 1.2rem;
+      color: #b14b60;
+      border-top: 2px solid #ffb6c1;
+      padding-top: 20px;
+    }
+
+    .signature span {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.2rem;
+      color: #c43b5c;
+      display: block;
+      margin-top: 5px;
+    }
+
+    .final-hearts {
+      font-size: 2rem;
+      word-spacing: 15px;
+      margin-top: 15px;
+      animation: heartsJump 1.5s infinite;
+    }
+
+    @keyframes heartsJump {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      .card { padding: 2rem 1.2rem; }
+      h1 { font-size: 2.8rem; }
+      .main-heart { font-size: 5rem; }
+      .greeting { font-size: 1.4rem; }
+      .personal-message { font-size: 1rem; }
+      .audio-btn { width: 50px; height: 50px; font-size: 1.5rem; }
+      .audio-btn i { font-size: 1.6rem; }
+      .float-item { opacity: 0.3; }
+    }
+
+    @media (max-width: 380px) {
+      .card { padding: 1.5rem 0.8rem; }
+      h1 { font-size: 2.3rem; }
+      .flower-bouquet { font-size: 1.6rem; letter-spacing: 5px; }
+    }
+
+    /* ===== CONTROL DE AUDIO OCULTO ===== */
+    #bg-music {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ELEMENTOS FLOTANTES: CORAZONES Y ESTRELLAS -->
+  <div class="floating-elements">
+    <div class="float-item">❤️</div>
+    <div class="float-item">🧡</div>
+    <div class="float-item">💖</div>
+    <div class="float-item">💗</div>
+    <div class="float-item">⭐</div>
+    <div class="float-item">✨</div>
+    <div class="float-item">🌸</div>
+    <div class="float-item">🌹</div>
+  </div>
+
+  <!-- TARJETA PRINCIPAL – DEDICADA A ARI -->
+  <main class="card" role="main">
+    
+    <!-- BADGE CON NOMBRE -->
+    <div class="name-badge">✨ PARA TI, ARI ✨</div>
+    
+    <h1>Feliz San Valentín</h1>
+    <div class="subhead">Día de la amistad y el cariño</div>
+
+    <!-- CORAZÓN PRINCIPAL LATIENTE -->
+    <div class="main-heart" aria-hidden="true">❤️</div>
+    
+    <!-- RAMO DE FLORES -->
+    <div class="flower-bouquet">🌷🌺🌸🌹🌼</div>
+
+    <!-- MENSAJE PERSONALIZADO PARA ARI -->
+    <div class="message-box">
+      <div class="greeting">Querida Ari,</div>
+      <div class="personal-message">
+        En este día especial, quiero recordarte lo importante que eres para mí. 
+        <i>💕</i><br><br>
+        Gracias por tu amistad sincera, por las risas compartidas y por estar siempre presente. 
+        Que este 14 de febrero esté lleno de alegría, amor y momentos bonitos, 
+        porque te los mereces todos. <i>✨</i>
+      </div>
+    </div>
+
+    <!-- SECCIÓN DE MÚSICA CON CONTROLES -->
+    <div class="music-section">
+      <div class="music-note">🎵 🎶 🎵</div>
+      <div class="song-title">Una canción para ti</div>
+      
+      <!-- Audio desde archivo en la raíz del proyecto -->
+      <audio id="bg-music" loop preload="auto">
+        <source src="cancion.mp3" type="audio/mpeg">
+        <source src="cancion.ogg" type="audio/ogg">
+        <source src="cancion.wav" type="audio/wav">
+        Tu navegador no soporta el elemento de audio. 
+        Puedes descargar la canción <a href="cancion.mp3">aquí</a>.
+      </audio>
+      
+      <div class="audio-controls">
+        <button class="audio-btn" id="playBtn" aria-label="Reproducir música">
+          <i class="fas fa-play"></i>
+        </button>
+        <button class="audio-btn" id="pauseBtn" aria-label="Pausar música">
+          <i class="fas fa-pause"></i>
+        </button>
+        <button class="audio-btn" id="restartBtn" aria-label="Reiniciar canción">
+          <i class="fas fa-undo-alt"></i>
+        </button>
+      </div>
+      
+      <div style="margin-top: 10px; font-size: 1rem; color: #9e4f66;">
+        <i class="fas fa-music"></i> Canción especial para Ari
+      </div>
+    </div>
+
+    <!-- FIRMA -->
+    <div class="signature">
+      Con todo mi cariño,
+      <span>Tu amigo que te aprecia</span>
+      <div class="final-hearts">
+        ❤️ 💛 💚 💙 💜
+      </div>
+      <div style="font-size: 0.95rem; margin-top: 12px; color: #b56378;">
+        14 de febrero · Día del amor y la amistad
+      </div>
+    </div>
+  </main>
+
+  <!-- SCRIPT PARA CONTROL DE AUDIO -->
+  <script>
+    (function() {
+      const audio = document.getElementById('bg-music');
+      const playBtn = document.getElementById('playBtn');
+      const pauseBtn = document.getElementById('pauseBtn');
+      const restartBtn = document.getElementById('restartBtn');
+      
+      // Configurar volumen
+      audio.volume = 0.5;
+      
+      // Reproducir
+      playBtn.addEventListener('click', function() {
+        audio.play().catch(e => {
+          console.log('Error al reproducir:', e);
+          alert('No se pudo reproducir la canción. Asegúrate de que el archivo "cancion.mp3" está en la misma carpeta que esta página.');
+        });
+      });
+      
+      // Pausar
+      pauseBtn.addEventListener('click', function() {
+        audio.pause();
+      });
+      
+      // Reiniciar
+      restartBtn.addEventListener('click', function() {
+        audio.currentTime = 0;
+        audio.play().catch(e => {
+          console.log('Error al reiniciar:', e);
+        });
+      });
+      
+      // Mostrar estado del audio
+      audio.addEventListener('error', function() {
+        console.log('Error cargando el archivo de audio');
+      });
+    })();
+  </script>
+</body>
+</html>
